@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package gui;
+import modelo.Usuario;
+import dao.UsuarioDAO;
 
 
 
@@ -32,13 +34,22 @@ public class PrincipalGUI extends javax.swing.JFrame {
         jToolBarPrincipaisTransacoes = new javax.swing.JToolBar();
         jButtonMovimentacao = new javax.swing.JButton();
         jButtonPagamentos = new javax.swing.JButton();
-        jLayeredPane1 = new javax.swing.JLayeredPane();
         fundo = new javax.swing.JLabel();
+        jLayeredPane1 = new javax.swing.JLayeredPane();
+        jInternalFrameLogin = new javax.swing.JInternalFrame();
+        jTextField1 = new javax.swing.JTextField();
+        jPasswordField1 = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jMenuBarPrincipal = new javax.swing.JMenuBar();
         jMenuCadastro = new javax.swing.JMenu();
         jMenuItemCadastroEmpresa = new javax.swing.JMenuItem();
         jMenuItemCadastroPrecos = new javax.swing.JMenuItem();
         jMenuItemCadastroTipoMaterial = new javax.swing.JMenuItem();
+        jMenuItemUsuario = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuFechar = new javax.swing.JMenuItem();
         jMenuRelatorios = new javax.swing.JMenu();
@@ -74,28 +85,100 @@ public class PrincipalGUI extends javax.swing.JFrame {
         });
         jToolBarPrincipaisTransacoes.add(jButtonPagamentos);
 
-        jLayeredPane1.setBackground(new java.awt.Color(0, 0, 0));
-
         fundo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Copobras.jpg"))); // NOI18N
+
+        jLayeredPane1.setBackground(new java.awt.Color(0, 0, 0));
+
+        jInternalFrameLogin.setVisible(true);
+
+        jTextField1.setText("jTextField1");
+
+        jPasswordField1.setText("jPasswordField1");
+
+        jButton1.setText("OK");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Cancela");
+
+        jLabel1.setText("Senha:");
+
+        jLabel2.setText("Código Usuário:");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("LOGIN");
+        jLabel3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        javax.swing.GroupLayout jInternalFrameLoginLayout = new javax.swing.GroupLayout(jInternalFrameLogin.getContentPane());
+        jInternalFrameLogin.getContentPane().setLayout(jInternalFrameLoginLayout);
+        jInternalFrameLoginLayout.setHorizontalGroup(
+            jInternalFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrameLoginLayout.createSequentialGroup()
+                .addGroup(jInternalFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrameLoginLayout.createSequentialGroup()
+                        .addGroup(jInternalFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jInternalFrameLoginLayout.createSequentialGroup()
+                                .addGap(47, 47, 47)
+                                .addComponent(jLabel1))
+                            .addGroup(jInternalFrameLoginLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jInternalFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(jInternalFrameLoginLayout.createSequentialGroup()
+                                .addComponent(jButton1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
+                                .addComponent(jButton2))
+                            .addComponent(jTextField1)
+                            .addComponent(jPasswordField1))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jInternalFrameLoginLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jInternalFrameLoginLayout.setVerticalGroup(
+            jInternalFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrameLoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jInternalFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jInternalFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jInternalFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGap(74, 74, 74)
-                .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(386, 386, 386)
+                .addComponent(jInternalFrameLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(441, Short.MAX_VALUE))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                .addGap(275, 275, 275)
+                .addComponent(jInternalFrameLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(327, Short.MAX_VALUE))
         );
-        jLayeredPane1.setLayer(fundo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jInternalFrameLogin, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jMenuCadastro.setText("Cadastro");
 
@@ -122,6 +205,9 @@ public class PrincipalGUI extends javax.swing.JFrame {
             }
         });
         jMenuCadastro.add(jMenuItemCadastroTipoMaterial);
+
+        jMenuItemUsuario.setText("Usuários");
+        jMenuCadastro.add(jMenuItemUsuario);
         jMenuCadastro.add(jSeparator1);
 
         jMenuFechar.setText("Fechar");
@@ -162,15 +248,25 @@ public class PrincipalGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBarPrincipaisTransacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 961, Short.MAX_VALUE))
+                .addGap(0, 962, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLayeredPane1))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addGap(42, 42, 42)
+                    .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(42, 42, 42)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBarPrincipaisTransacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 790, Short.MAX_VALUE)
+            .addComponent(jToolBarPrincipaisTransacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 802, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLayeredPane1))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(fundo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
 
         pack();
@@ -201,6 +297,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonMovimentacaoActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        
         MovimentacaoPeriodoGUI movimentacaoPeriodoGUI = new MovimentacaoPeriodoGUI();
         movimentacaoPeriodoGUI.setVisible(true);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
@@ -214,6 +311,10 @@ public class PrincipalGUI extends javax.swing.JFrame {
         NotasFiscaisPeriodoGUI notasFiscaisPeriodoGUI = new NotasFiscaisPeriodoGUI();
         notasFiscaisPeriodoGUI.setVisible(true);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        jInternalFrameLogin.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -252,8 +353,14 @@ public class PrincipalGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel fundo;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonMovimentacao;
     private javax.swing.JButton jButtonPagamentos;
+    private javax.swing.JInternalFrame jInternalFrameLogin;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenuBar jMenuBarPrincipal;
     private javax.swing.JMenu jMenuCadastro;
@@ -263,8 +370,11 @@ public class PrincipalGUI extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItemCadastroEmpresa;
     private javax.swing.JMenuItem jMenuItemCadastroPrecos;
     private javax.swing.JMenuItem jMenuItemCadastroTipoMaterial;
+    private javax.swing.JMenuItem jMenuItemUsuario;
     private javax.swing.JMenu jMenuRelatorios;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JToolBar jToolBarPrincipaisTransacoes;
     // End of variables declaration//GEN-END:variables
 }
