@@ -262,6 +262,7 @@ public class MovimentacaoGUI extends javax.swing.JFrame {
 
     private void jButtonSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalvarActionPerformed
         PrecoDAO precoDAO = new PrecoDAO();
+        EmpresaDAO empresaDAO = new EmpresaDAO();
         Movimentacao movimentacao = new Movimentacao();
         movimentacao.setEmpresa(jComboBoxEmpresa.getSelectedIndex());
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
@@ -277,6 +278,9 @@ public class MovimentacaoGUI extends javax.swing.JFrame {
         movimentacao.setTicket(Integer.parseInt(jFormattedTextFieldTicket.getText().replace(".","")));
         movimentacao.setNotaFiscal(Integer.parseInt(jFormattedTextFieldNotaFiscal.getText()));
         movimentacao.setValorMovimentacao(Double.parseDouble(jFormattedTextFieldQuantidade.getText().replace(".", "").replace(",", "."))*precoDAO.preco(jComboBoxTipoMaterial.getSelectedIndex()));
+        if(movimentacao.getValorMovimentacao()>0){
+            movimentacao.setValorNf(Double.parseDouble(jFormattedTextFieldQuantidade.getText().replace(".", "").replace(",", "."))*empresaDAO.valorNF(jComboBoxEmpresa.getSelectedIndex()));
+        }
         if(jFormattedTextFieldData.getText().isEmpty() || jFormattedTextFieldQuantidade.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
         } else {

@@ -8,6 +8,7 @@ package modelo;
 public class Empresa {
     private int id;
     private String nomeEmpresa;
+    private double valorNF;
 
     /**
      * @return Retorna Nome da Empresa.
@@ -35,5 +36,19 @@ public class Empresa {
      */
     public void setId(int id) {
         this.id = id;
+    }
+
+    /**
+     * @return the valorNF
+     */
+    public double getValorNF() {
+        return valorNF;
+    }
+
+    /**
+     * @param valorNF the valorNF to set
+     */
+    public void setValorNF(double valorNF) {
+        this.valorNF = valorNF;
     }
 }

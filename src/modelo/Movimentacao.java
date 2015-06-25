@@ -19,6 +19,7 @@ public class Movimentacao {
     private Date dataMovimentacao;
     private double quantidade;
     private double valorMovimentacao;
+    private double valorNf;
 
     /**
      * @return the empresa
@@ -131,4 +132,18 @@ public class Movimentacao {
     public void setValorMovimentacao(double valorMovimentacao) {
         this.valorMovimentacao = valorMovimentacao;
     }    
+
+    /**
+     * @return the valorNf
+     */
+    public double getValorNf() {
+        return valorNf;
+    }
+
+    /**
+     * @param valorNf the valorNf to set
+     */
+    public void setValorNf(double valorNf) {
+        this.valorNf = valorNf;
+    }
 }

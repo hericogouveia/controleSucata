@@ -27,7 +27,7 @@ public class MovimentacaoDAO {
 
     public void adiciona(Movimentacao movimentacao){
 
-        String sql = "INSERT INTO Movimentacao(empresa, dataMovimentacao, tipoMaterialMov, quantidade, notaFiscal, ticket, valorMovimentacao) VALUES(?,?,?,?,?,?,?)";
+        String sql = "INSERT INTO Movimentacao(empresa, dataMovimentacao, tipoMaterialMov, quantidade, notaFiscal, ticket, valorMovimentacao, valorNf) VALUES(?,?,?,?,?,?,?,?)";
         try {
 
            PreparedStatement stmt = connection.prepareStatement(sql);
@@ -38,6 +38,7 @@ public class MovimentacaoDAO {
            stmt.setInt(5, movimentacao.getNotaFiscal());
            stmt.setInt(6, movimentacao.getTicket());
            stmt.setDouble(7, movimentacao.getValorMovimentacao());
+           stmt.setDouble(8, movimentacao.getValorNf());
            stmt.execute();
            stmt.close();
 

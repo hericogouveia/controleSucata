@@ -108,4 +108,24 @@ public class EmpresaDAO {
             throw new RuntimeException(u);
         }
     }
+    
+    public double valorNF(int empresa){
+        double valor=0;
+        String sql = "SELECT valorNf FROM empresa WHERE id = ?";
+        
+        try{
+            PreparedStatement stmt = connection.prepareStatement(sql);
+            stmt.setInt(1, empresa);
+                        ResultSet rs = stmt.executeQuery();
+            while(rs.next()){
+                valor = rs.getDouble("valorNf");
+            }
+            rs.close();
+            stmt.close();
+            return valor;
+        } catch (SQLException u) {
+            throw new RuntimeException(u);
+        }
+    }
 }
+
