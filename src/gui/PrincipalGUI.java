@@ -6,6 +6,7 @@
 package gui;
 import modelo.Usuario;
 import dao.UsuarioDAO;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -13,12 +14,15 @@ import dao.UsuarioDAO;
  * @author herico
  */
 public class PrincipalGUI extends javax.swing.JFrame {
-
+    
+    Usuario usuario = new Usuario();
+    int tipo=0;
     /**
      * Creates new form PrincipalGUI
      */
     public PrincipalGUI() {
         initComponents();
+
     }
 
     /**
@@ -35,17 +39,26 @@ public class PrincipalGUI extends javax.swing.JFrame {
         jButtonPagamentos = new javax.swing.JButton();
         fundo = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
+        jInternalFrameLogin = new javax.swing.JInternalFrame();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jFormattedTextFieldCodUsuario = new javax.swing.JFormattedTextField();
+        jPasswordFieldSenhaUsuario = new javax.swing.JPasswordField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jMenuBarPrincipal = new javax.swing.JMenuBar();
         jMenuCadastro = new javax.swing.JMenu();
+        jMenuItemUsuario = new javax.swing.JMenuItem();
+        jSeparator2 = new javax.swing.JPopupMenu.Separator();
         jMenuItemCadastroEmpresa = new javax.swing.JMenuItem();
         jMenuItemCadastroPrecos = new javax.swing.JMenuItem();
         jMenuItemCadastroTipoMaterial = new javax.swing.JMenuItem();
-        jMenuItemUsuario = new javax.swing.JMenuItem();
         jSeparator1 = new javax.swing.JPopupMenu.Separator();
         jMenuFechar = new javax.swing.JMenuItem();
         jMenuRelatorios = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItemMovimentacaoPeriodo = new javax.swing.JMenuItem();
+        jMenuItemNFsPeriodo = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Controle de Venda de Resíduos");
@@ -92,7 +105,82 @@ public class PrincipalGUI extends javax.swing.JFrame {
             .addGap(0, 810, Short.MAX_VALUE)
         );
 
+        jInternalFrameLogin.setVisible(true);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setText("LOGIN");
+
+        jLabel2.setText("Código:");
+
+        jLabel3.setText("Senha:");
+
+        jFormattedTextFieldCodUsuario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+
+        jButton1.setText("Entrar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Cancelar");
+
+        javax.swing.GroupLayout jInternalFrameLoginLayout = new javax.swing.GroupLayout(jInternalFrameLogin.getContentPane());
+        jInternalFrameLogin.getContentPane().setLayout(jInternalFrameLoginLayout);
+        jInternalFrameLoginLayout.setHorizontalGroup(
+            jInternalFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrameLoginLayout.createSequentialGroup()
+                .addGroup(jInternalFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jInternalFrameLoginLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jInternalFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jInternalFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jFormattedTextFieldCodUsuario)
+                            .addComponent(jPasswordFieldSenhaUsuario)))
+                    .addGroup(jInternalFrameLoginLayout.createSequentialGroup()
+                        .addGap(113, 113, 113)
+                        .addComponent(jLabel1)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jInternalFrameLoginLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jInternalFrameLoginLayout.setVerticalGroup(
+            jInternalFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jInternalFrameLoginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jInternalFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jFormattedTextFieldCodUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jInternalFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jPasswordFieldSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jInternalFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
         jMenuCadastro.setText("Cadastro");
+
+        jMenuItemUsuario.setText("Usuários");
+        jMenuItemUsuario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItemUsuarioActionPerformed(evt);
+            }
+        });
+        jMenuCadastro.add(jMenuItemUsuario);
+        jMenuCadastro.add(jSeparator2);
 
         jMenuItemCadastroEmpresa.setText("Empresa");
         jMenuItemCadastroEmpresa.addActionListener(new java.awt.event.ActionListener() {
@@ -117,9 +205,6 @@ public class PrincipalGUI extends javax.swing.JFrame {
             }
         });
         jMenuCadastro.add(jMenuItemCadastroTipoMaterial);
-
-        jMenuItemUsuario.setText("Usuários");
-        jMenuCadastro.add(jMenuItemUsuario);
         jMenuCadastro.add(jSeparator1);
 
         jMenuFechar.setText("Fechar");
@@ -134,21 +219,21 @@ public class PrincipalGUI extends javax.swing.JFrame {
 
         jMenuRelatorios.setText("Relatórios");
 
-        jMenuItem1.setText("Movimentação do Período");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemMovimentacaoPeriodo.setText("Movimentação do Período");
+        jMenuItemMovimentacaoPeriodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
+                jMenuItemMovimentacaoPeriodoActionPerformed(evt);
             }
         });
-        jMenuRelatorios.add(jMenuItem1);
+        jMenuRelatorios.add(jMenuItemMovimentacaoPeriodo);
 
-        jMenuItem2.setText("Notas Fiscais e Tickets Período");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+        jMenuItemNFsPeriodo.setText("Notas Fiscais e Tickets Período");
+        jMenuItemNFsPeriodo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
+                jMenuItemNFsPeriodoActionPerformed(evt);
             }
         });
-        jMenuRelatorios.add(jMenuItem2);
+        jMenuRelatorios.add(jMenuItemNFsPeriodo);
 
         jMenuBarPrincipal.add(jMenuRelatorios);
 
@@ -160,7 +245,9 @@ public class PrincipalGUI extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBarPrincipaisTransacoes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 962, Short.MAX_VALUE))
+                .addGap(302, 302, 302)
+                .addComponent(jInternalFrameLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 365, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLayeredPane1))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,7 +258,11 @@ public class PrincipalGUI extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBarPrincipaisTransacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 802, Short.MAX_VALUE)
+            .addComponent(jToolBarPrincipaisTransacoes, javax.swing.GroupLayout.DEFAULT_SIZE, 810, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jInternalFrameLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(336, 336, 336))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jLayeredPane1))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,40 +280,88 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuFecharActionPerformed
 
     private void jMenuItemCadastroEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroEmpresaActionPerformed
-        EmpresaGUI empresaGUI = new EmpresaGUI();
-        empresaGUI.setVisible(true);
+        if(tipo==0){
+            JOptionPane.showMessageDialog(null, "Acesso negato para usuário");            
+        } else {
+            EmpresaGUI empresaGUI = new EmpresaGUI();
+            empresaGUI.setVisible(true);
+        }
     }//GEN-LAST:event_jMenuItemCadastroEmpresaActionPerformed
 
     private void jMenuItemCadastroPrecosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroPrecosActionPerformed
-        PrecoGUI precoGUI = new PrecoGUI();
-        precoGUI.setVisible(true);
+        if(tipo==1){
+            PrecoGUI precoGUI = new PrecoGUI();
+            precoGUI.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Acesso negato para usuário");
+        }
     }//GEN-LAST:event_jMenuItemCadastroPrecosActionPerformed
 
     private void jMenuItemCadastroTipoMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroTipoMaterialActionPerformed
-        TipoMaterialGUI tipoMaterialGUI = new TipoMaterialGUI();
-        tipoMaterialGUI.setVisible(true);
+        if(tipo==0){
+            JOptionPane.showMessageDialog(null, "Acesso negato para usuário");            
+        } else {
+            TipoMaterialGUI tipoMaterialGUI = new TipoMaterialGUI();
+            tipoMaterialGUI.setVisible(true);
+        }
     }//GEN-LAST:event_jMenuItemCadastroTipoMaterialActionPerformed
 
     private void jButtonMovimentacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMovimentacaoActionPerformed
-        MovimentacaoGUI movimentacaoGUI = new MovimentacaoGUI();
-        movimentacaoGUI.setVisible(true);
+        if(tipo==0){
+            JOptionPane.showMessageDialog(null, "Acesso negato para usuário");  
+        } else {
+            MovimentacaoGUI movimentacaoGUI = new MovimentacaoGUI();
+            movimentacaoGUI.setVisible(true);
+        }
     }//GEN-LAST:event_jButtonMovimentacaoActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        
-        MovimentacaoPeriodoGUI movimentacaoPeriodoGUI = new MovimentacaoPeriodoGUI();
-        movimentacaoPeriodoGUI.setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
+    private void jMenuItemMovimentacaoPeriodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMovimentacaoPeriodoActionPerformed
+        if(tipo==1){
+            MovimentacaoPeriodoGUI movimentacaoPeriodoGUI = new MovimentacaoPeriodoGUI();
+            movimentacaoPeriodoGUI.setVisible(true);
+        }else {
+            JOptionPane.showMessageDialog(null, "Acesso negato para usuário");
+        }   
+    }//GEN-LAST:event_jMenuItemMovimentacaoPeriodoActionPerformed
 
     private void jButtonPagamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPagamentosActionPerformed
+        if(tipo == 1){
         PagamentoGUI pagamentoGUI = new PagamentoGUI();
         pagamentoGUI.setVisible(true);
+        } else {
+             JOptionPane.showMessageDialog(null, "Acesso negato para usuário");
+        }
     }//GEN-LAST:event_jButtonPagamentosActionPerformed
 
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        NotasFiscaisPeriodoGUI notasFiscaisPeriodoGUI = new NotasFiscaisPeriodoGUI();
-        notasFiscaisPeriodoGUI.setVisible(true);
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
+    private void jMenuItemNFsPeriodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNFsPeriodoActionPerformed
+        if(tipo==0){
+            JOptionPane.showMessageDialog(null, "Acesso negato para usuário");
+        } else {
+            NotasFiscaisPeriodoGUI notasFiscaisPeriodoGUI = new NotasFiscaisPeriodoGUI();
+            notasFiscaisPeriodoGUI.setVisible(true);
+        }
+    }//GEN-LAST:event_jMenuItemNFsPeriodoActionPerformed
+
+    private void jMenuItemUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUsuarioActionPerformed
+        if(tipo==1){
+            UsuarioGUI usuarioGUI = new UsuarioGUI();
+            usuarioGUI.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(null, "Acesso negato para usuário");
+        }
+    }//GEN-LAST:event_jMenuItemUsuarioActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        usuario.setCod(Integer.parseInt(jFormattedTextFieldCodUsuario.getText()));
+        usuario.setSenha(jPasswordFieldSenhaUsuario.getText());
+        UsuarioDAO dao = new UsuarioDAO();
+        tipo = dao.login(usuario);
+        if(tipo==0){
+             JOptionPane.showMessageDialog(null, "Usuário ou senha errado!");
+        } else {
+            jInternalFrameLogin.setVisible(false);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -261,20 +400,29 @@ public class PrincipalGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel fundo;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonMovimentacao;
     private javax.swing.JButton jButtonPagamentos;
+    private javax.swing.JFormattedTextField jFormattedTextFieldCodUsuario;
+    private javax.swing.JInternalFrame jInternalFrameLogin;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JMenuBar jMenuBarPrincipal;
     private javax.swing.JMenu jMenuCadastro;
     private javax.swing.JMenuItem jMenuFechar;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItemCadastroEmpresa;
     private javax.swing.JMenuItem jMenuItemCadastroPrecos;
     private javax.swing.JMenuItem jMenuItemCadastroTipoMaterial;
+    private javax.swing.JMenuItem jMenuItemMovimentacaoPeriodo;
+    private javax.swing.JMenuItem jMenuItemNFsPeriodo;
     private javax.swing.JMenuItem jMenuItemUsuario;
     private javax.swing.JMenu jMenuRelatorios;
+    private javax.swing.JPasswordField jPasswordFieldSenhaUsuario;
     private javax.swing.JPopupMenu.Separator jSeparator1;
+    private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JToolBar jToolBarPrincipaisTransacoes;
     // End of variables declaration//GEN-END:variables
 }

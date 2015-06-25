@@ -192,7 +192,7 @@ public class PrecoGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSalvarActionPerformed
 
     private void jComboBoxTipoMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoMaterialActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jComboBoxTipoMaterialActionPerformed
 
     /**
