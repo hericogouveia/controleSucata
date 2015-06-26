@@ -308,7 +308,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuFecharActionPerformed
 
     private void jMenuItemCadastroEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroEmpresaActionPerformed
-        if(usuario.getTipo()==0){
+        if(usuario.getTipo()==0 || usuario.getTipo()==3){
             JOptionPane.showMessageDialog(null, "Acesso negato para usuário");            
         } else {
             EmpresaGUI empresaGUI = new EmpresaGUI();
@@ -326,7 +326,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemCadastroPrecosActionPerformed
 
     private void jMenuItemCadastroTipoMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroTipoMaterialActionPerformed
-        if(usuario.getTipo()==0){
+        if(usuario.getTipo()==0 || usuario.getTipo()==3){
             JOptionPane.showMessageDialog(null, "Acesso negato para usuário");            
         } else {
             TipoMaterialGUI tipoMaterialGUI = new TipoMaterialGUI();
@@ -335,7 +335,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemCadastroTipoMaterialActionPerformed
 
     private void jButtonMovimentacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMovimentacaoActionPerformed
-        if(usuario.getTipo()==0){
+        if(usuario.getTipo()==0 || usuario.getTipo()==3){
             JOptionPane.showMessageDialog(null, "Acesso negato para usuário");  
         } else {
             MovimentacaoGUI movimentacaoGUI = new MovimentacaoGUI();
