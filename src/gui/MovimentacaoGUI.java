@@ -292,7 +292,7 @@ public class MovimentacaoGUI extends javax.swing.JFrame {
         }
         
         jComboBoxEmpresa.setSelectedItem("");
-        jFormattedTextFieldData.setText("");
+        jFormattedTextFieldData.setValue(new java.util.Date());
         jComboBoxTipoMaterial.setSelectedItem("");
         jFormattedTextFieldQuantidade.setText("");
         jFormattedTextFieldTicket.setText("");
