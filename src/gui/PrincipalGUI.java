@@ -16,7 +16,6 @@ import javax.swing.JOptionPane;
 public class PrincipalGUI extends javax.swing.JFrame {
     
     Usuario usuario = new Usuario();
-    int tipo=0;
     /**
      * Creates new form PrincipalGUI
      */
@@ -37,6 +36,8 @@ public class PrincipalGUI extends javax.swing.JFrame {
         jToolBarPrincipaisTransacoes = new javax.swing.JToolBar();
         jButtonMovimentacao = new javax.swing.JButton();
         jButtonPagamentos = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
         fundo = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jInternalFrameLogin = new javax.swing.JInternalFrame();
@@ -45,8 +46,8 @@ public class PrincipalGUI extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jFormattedTextFieldCodUsuario = new javax.swing.JFormattedTextField();
         jPasswordFieldSenhaUsuario = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonEntrar = new javax.swing.JButton();
+        jButtonCancelar = new javax.swing.JButton();
         jMenuBarPrincipal = new javax.swing.JMenuBar();
         jMenuCadastro = new javax.swing.JMenu();
         jMenuItemUsuario = new javax.swing.JMenuItem();
@@ -89,6 +90,28 @@ public class PrincipalGUI extends javax.swing.JFrame {
         });
         jToolBarPrincipaisTransacoes.add(jButtonPagamentos);
 
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/LoginRed.jpg"))); // NOI18N
+        jButton3.setFocusable(false);
+        jButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jToolBarPrincipaisTransacoes.add(jButton3);
+
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/sair.jpg"))); // NOI18N
+        jButton4.setFocusable(false);
+        jButton4.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jButton4.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jToolBarPrincipaisTransacoes.add(jButton4);
+
         fundo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Copobras.jpg"))); // NOI18N
 
@@ -116,14 +139,19 @@ public class PrincipalGUI extends javax.swing.JFrame {
 
         jFormattedTextFieldCodUsuario.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
 
-        jButton1.setText("Entrar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButtonEntrar.setText("Entrar");
+        jButtonEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jButtonEntrarActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Cancelar");
+        jButtonCancelar.setText("Cancelar");
+        jButtonCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jInternalFrameLoginLayout = new javax.swing.GroupLayout(jInternalFrameLogin.getContentPane());
         jInternalFrameLogin.getContentPane().setLayout(jInternalFrameLoginLayout);
@@ -146,9 +174,9 @@ public class PrincipalGUI extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jInternalFrameLoginLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)))
+                        .addComponent(jButtonCancelar, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jInternalFrameLoginLayout.setVerticalGroup(
@@ -166,9 +194,9 @@ public class PrincipalGUI extends javax.swing.JFrame {
                     .addComponent(jPasswordFieldSenhaUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jInternalFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(15, Short.MAX_VALUE))
+                    .addComponent(jButtonEntrar)
+                    .addComponent(jButtonCancelar))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         jMenuCadastro.setText("Cadastro");
@@ -280,7 +308,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuFecharActionPerformed
 
     private void jMenuItemCadastroEmpresaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroEmpresaActionPerformed
-        if(tipo==0){
+        if(usuario.getTipo()==0){
             JOptionPane.showMessageDialog(null, "Acesso negato para usuário");            
         } else {
             EmpresaGUI empresaGUI = new EmpresaGUI();
@@ -289,7 +317,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemCadastroEmpresaActionPerformed
 
     private void jMenuItemCadastroPrecosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroPrecosActionPerformed
-        if(tipo==1){
+        if(usuario.getTipo()==1){
             PrecoGUI precoGUI = new PrecoGUI();
             precoGUI.setVisible(true);
         } else {
@@ -298,7 +326,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemCadastroPrecosActionPerformed
 
     private void jMenuItemCadastroTipoMaterialActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemCadastroTipoMaterialActionPerformed
-        if(tipo==0){
+        if(usuario.getTipo()==0){
             JOptionPane.showMessageDialog(null, "Acesso negato para usuário");            
         } else {
             TipoMaterialGUI tipoMaterialGUI = new TipoMaterialGUI();
@@ -307,7 +335,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemCadastroTipoMaterialActionPerformed
 
     private void jButtonMovimentacaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMovimentacaoActionPerformed
-        if(tipo==0){
+        if(usuario.getTipo()==0){
             JOptionPane.showMessageDialog(null, "Acesso negato para usuário");  
         } else {
             MovimentacaoGUI movimentacaoGUI = new MovimentacaoGUI();
@@ -316,7 +344,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonMovimentacaoActionPerformed
 
     private void jMenuItemMovimentacaoPeriodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemMovimentacaoPeriodoActionPerformed
-        if(tipo==1){
+        if(usuario.getTipo()==1){
             MovimentacaoPeriodoGUI movimentacaoPeriodoGUI = new MovimentacaoPeriodoGUI();
             movimentacaoPeriodoGUI.setVisible(true);
         }else {
@@ -325,7 +353,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemMovimentacaoPeriodoActionPerformed
 
     private void jButtonPagamentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPagamentosActionPerformed
-        if(tipo == 1){
+        if(usuario.getTipo() == 1){
         PagamentoGUI pagamentoGUI = new PagamentoGUI();
         pagamentoGUI.setVisible(true);
         } else {
@@ -334,7 +362,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonPagamentosActionPerformed
 
     private void jMenuItemNFsPeriodoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemNFsPeriodoActionPerformed
-        if(tipo==0){
+        if(usuario.getTipo()==0){
             JOptionPane.showMessageDialog(null, "Acesso negato para usuário");
         } else {
             NotasFiscaisPeriodoGUI notasFiscaisPeriodoGUI = new NotasFiscaisPeriodoGUI();
@@ -343,7 +371,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItemNFsPeriodoActionPerformed
 
     private void jMenuItemUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemUsuarioActionPerformed
-        if(tipo==1){
+        if(usuario.getTipo()==1){
             UsuarioGUI usuarioGUI = new UsuarioGUI();
             usuarioGUI.setVisible(true);
         } else {
@@ -351,17 +379,34 @@ public class PrincipalGUI extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jMenuItemUsuarioActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
         usuario.setCod(Integer.parseInt(jFormattedTextFieldCodUsuario.getText()));
         usuario.setSenha(jPasswordFieldSenhaUsuario.getText());
         UsuarioDAO dao = new UsuarioDAO();
-        tipo = dao.login(usuario);
-        if(tipo==0){
+        dao.login(usuario);
+        if(usuario.getTipo()==0){
              JOptionPane.showMessageDialog(null, "Usuário ou senha errado!");
         } else {
             jInternalFrameLogin.setVisible(false);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jButtonEntrarActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        usuario.setCod(0);
+        usuario.setSenha(null);
+        usuario.setTipo(0);
+        jInternalFrameLogin.setVisible(true);
+        jFormattedTextFieldCodUsuario.setText("");
+        jPasswordFieldSenhaUsuario.setText("");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButtonCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelarActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jButtonCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -400,8 +445,10 @@ public class PrincipalGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel fundo;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButtonCancelar;
+    private javax.swing.JButton jButtonEntrar;
     private javax.swing.JButton jButtonMovimentacao;
     private javax.swing.JButton jButtonPagamentos;
     private javax.swing.JFormattedTextField jFormattedTextFieldCodUsuario;

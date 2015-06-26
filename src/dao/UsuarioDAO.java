@@ -46,20 +46,19 @@ public class UsuarioDAO {
         }
     }
     
-    public int login(Usuario usuario){
-        int tipo=0;
-        String sql = "SELECT tipo FROM usuario WHERE id=? AND senha=?";
+    public void login(Usuario usuario){
+        String sql = "SELECT nome, tipo FROM usuario WHERE id=? AND senha=?";
         try{
         PreparedStatement stmt = connection.prepareStatement(sql);
         stmt.setInt(1, usuario.getCod());
         stmt.setString(2, usuario.getSenha());
         ResultSet rs = stmt.executeQuery();
         while(rs.next()){
-            tipo = rs.getInt("tipo");
+            usuario.setNome(rs.getString("nome"));
+            usuario.setTipo(rs.getInt("tipo"));
         }
         rs.close();
         stmt.close();
-        return tipo;
         } catch (SQLException u) {
             throw new RuntimeException(u);
         }
