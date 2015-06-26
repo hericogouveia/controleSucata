@@ -33,6 +33,8 @@ public class MovimentacaoGUI extends javax.swing.JFrame {
     public MovimentacaoGUI() {
         initComponents();
         
+        jFormattedTextFieldData.setValue(new java.util.Date());
+        
         EmpresaDAO empresaDAO = new EmpresaDAO();
         List<Empresa> empresas;
         empresas = empresaDAO.listarTodos();
