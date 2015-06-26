@@ -60,6 +60,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jComboBoxTipoUsuario = new javax.swing.JComboBox();
         jPasswordFieldSenhaUsuario = new javax.swing.JPasswordField();
+        jButtonFechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,6 +91,13 @@ public class UsuarioGUI extends javax.swing.JFrame {
         jComboBoxTipoUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxTipoUsuarioActionPerformed(evt);
+            }
+        });
+
+        jButtonFechar.setText("Fechar");
+        jButtonFechar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFecharActionPerformed(evt);
             }
         });
 
@@ -125,6 +133,10 @@ public class UsuarioGUI extends javax.swing.JFrame {
                             .addComponent(jComboBoxTipoUsuario, 0, 235, Short.MAX_VALUE)
                             .addComponent(jPasswordFieldSenhaUsuario))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButtonFechar)
+                .addGap(111, 111, 111))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -153,7 +165,9 @@ public class UsuarioGUI extends javax.swing.JFrame {
                     .addComponent(jButtonLocalizar)
                     .addComponent(jButtonAlterar)
                     .addComponent(jButtonExcluir))
-                .addGap(35, 35, 35))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButtonFechar)
+                .addGap(6, 6, 6))
         );
 
         pack();
@@ -183,6 +197,10 @@ public class UsuarioGUI extends javax.swing.JFrame {
     private void jComboBoxTipoUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxTipoUsuarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxTipoUsuarioActionPerformed
+
+    private void jButtonFecharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFecharActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButtonFecharActionPerformed
 
     /**
      * @param args the command line arguments
@@ -222,6 +240,7 @@ public class UsuarioGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAlterar;
     private javax.swing.JButton jButtonExcluir;
+    private javax.swing.JButton jButtonFechar;
     private javax.swing.JButton jButtonLocalizar;
     private javax.swing.JButton jButtonSalvar;
     private javax.swing.JComboBox jComboBoxTipoUsuario;
