@@ -38,8 +38,8 @@ public class PrincipalGUI extends javax.swing.JFrame {
         jButtonPagamentos = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        fundo = new javax.swing.JLabel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
+        fundo = new javax.swing.JLabel();
         jInternalFrameLogin = new javax.swing.JInternalFrame();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -112,9 +112,6 @@ public class PrincipalGUI extends javax.swing.JFrame {
         });
         jToolBarPrincipaisTransacoes.add(jButton4);
 
-        fundo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Copobras.jpg"))); // NOI18N
-
         jLayeredPane1.setBackground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
@@ -127,6 +124,9 @@ public class PrincipalGUI extends javax.swing.JFrame {
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 810, Short.MAX_VALUE)
         );
+
+        fundo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gui/Copobras.jpg"))); // NOI18N
 
         jInternalFrameLogin.setVisible(true);
 
@@ -196,7 +196,7 @@ public class PrincipalGUI extends javax.swing.JFrame {
                 .addGroup(jInternalFrameLoginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonEntrar)
                     .addComponent(jButtonCancelar))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
 
         jMenuCadastro.setText("Cadastro");

@@ -218,14 +218,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="fundo">
-      <Properties>
-        <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/gui/Copobras.jpg"/>
-        </Property>
-      </Properties>
-    </Component>
     <Container class="javax.swing.JLayeredPane" name="jLayeredPane1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -246,6 +238,14 @@
         </DimensionLayout>
       </Layout>
     </Container>
+    <Component class="javax.swing.JLabel" name="fundo">
+      <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+          <Image iconType="3" name="/gui/Copobras.jpg"/>
+        </Property>
+      </Properties>
+    </Component>
     <Container class="javax.swing.JInternalFrame" name="jInternalFrameLogin">
       <Properties>
         <Property name="visible" type="boolean" value="true"/>
@@ -304,7 +304,7 @@
                       <Component id="jButtonEntrar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonCancelar" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="55" max="32767" attributes="0"/>
+                  <EmptySpace pref="99" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
