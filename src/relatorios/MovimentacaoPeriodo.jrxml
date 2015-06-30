@@ -600,14 +600,14 @@ e.descEmpresa]]>
 				</jr:table>
 			</componentElement>
 			<staticText>
-				<reportElement positionType="Float" x="0" y="78" width="360" height="39" uuid="e85be941-5a7b-4bb6-b711-43a8d8854e4d"/>
+				<reportElement positionType="Float" x="0" y="89" width="360" height="28" uuid="e85be941-5a7b-4bb6-b711-43a8d8854e4d"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font size="12"/>
 				</textElement>
 				<text><![CDATA[Valor total de Materiais Vendidos]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="Float" x="417" y="78" width="379" height="39" uuid="c786c52f-b851-485f-bbc1-0993e71cb44b"/>
+				<reportElement positionType="Float" x="417" y="89" width="379" height="28" uuid="c786c52f-b851-485f-bbc1-0993e71cb44b"/>
 				<textElement textAlignment="Center" verticalAlignment="Bottom">
 					<font size="12"/>
 				</textElement>
@@ -620,6 +620,9 @@ e.descEmpresa]]>
 				</textElement>
 				<text><![CDATA[Pagamento de Boleto de NFs]]></text>
 			</staticText>
+			<break>
+				<reportElement x="0" y="83" width="100" height="1" uuid="8069ce55-fdd6-4c07-b48a-fbc669804352"/>
+			</break>
 		</band>
 	</detail>
 	<columnFooter>
