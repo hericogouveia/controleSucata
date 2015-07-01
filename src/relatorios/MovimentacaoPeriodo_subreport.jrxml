@@ -55,7 +55,7 @@ t.id not in (14,15,16,17,18,19,20) and m.dataMovimentacao>=$P{inicio} and m.data
 		<band height="191" splitType="Stretch">
 			<crosstab>
 				<reportElement x="0" y="0" width="802" height="191" uuid="94852e8e-ba7f-49a9-b32c-51fb4b927c5d"/>
-				<rowGroup name="Data" width="70" totalPosition="End">
+				<rowGroup name="Data" width="60" totalPosition="End">
 					<bucket class="java.sql.Date">
 						<bucketExpression><![CDATA[$F{Data}]]></bucketExpression>
 					</bucket>
@@ -65,7 +65,7 @@ t.id not in (14,15,16,17,18,19,20) and m.dataMovimentacao>=$P{inicio} and m.data
 								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 							</box>
 							<textField pattern="dd/MM/yyyy">
-								<reportElement style="Crosstab Data Text" x="0" y="0" width="70" height="25" uuid="dd8966a7-f117-4fd9-8d5c-f288330f6945"/>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="60" height="25" uuid="dd8966a7-f117-4fd9-8d5c-f288330f6945"/>
 								<textElement verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$V{Data}]]></textFieldExpression>
 							</textField>
@@ -77,7 +77,7 @@ t.id not in (14,15,16,17,18,19,20) and m.dataMovimentacao>=$P{inicio} and m.data
 								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 							</box>
 							<staticText>
-								<reportElement x="0" y="0" width="70" height="25" uuid="5d70d974-5c55-43fb-b235-5ef6ed13dd2e"/>
+								<reportElement x="0" y="0" width="60" height="25" uuid="5d70d974-5c55-43fb-b235-5ef6ed13dd2e"/>
 								<textElement textAlignment="Center" verticalAlignment="Middle"/>
 								<text><![CDATA[Total Data]]></text>
 							</staticText>
@@ -94,7 +94,7 @@ t.id not in (14,15,16,17,18,19,20) and m.dataMovimentacao>=$P{inicio} and m.data
 								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 							</box>
 							<textField>
-								<reportElement style="Crosstab Data Text" x="0" y="0" width="81" height="30" uuid="e3c6a902-1ced-4f37-bad7-1d91f3fcf3a9"/>
+								<reportElement style="Crosstab Data Text" x="0" y="0" width="70" height="30" uuid="e3c6a902-1ced-4f37-bad7-1d91f3fcf3a9"/>
 								<textElement verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$V{Material}]]></textFieldExpression>
 							</textField>
@@ -107,25 +107,25 @@ t.id not in (14,15,16,17,18,19,20) and m.dataMovimentacao>=$P{inicio} and m.data
 				<measure name="QuantidadeMeasure" class="java.lang.Double" calculation="Sum">
 					<measureExpression><![CDATA[$F{Quantidade}]]></measureExpression>
 				</measure>
-				<crosstabCell width="81" height="25">
+				<crosstabCell width="70" height="25">
 					<cellContents>
 						<box>
 							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 						</box>
 						<textField pattern="#,##0">
-							<reportElement style="Crosstab Data Text" x="0" y="0" width="81" height="25" uuid="4e5e1aa2-667e-448d-ad41-e042e3fc62b1"/>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="70" height="25" uuid="4e5e1aa2-667e-448d-ad41-e042e3fc62b1"/>
 							<textElement verticalAlignment="Middle"/>
 							<textFieldExpression><![CDATA[$V{QuantidadeMeasure}]]></textFieldExpression>
 						</textField>
 					</cellContents>
 				</crosstabCell>
-				<crosstabCell width="81" height="25" rowTotalGroup="Data">
+				<crosstabCell width="70" height="25" rowTotalGroup="Data">
 					<cellContents backcolor="#BFE1FF" mode="Opaque">
 						<box>
 							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 						</box>
 						<textField pattern="#,##0">
-							<reportElement style="Crosstab Data Text" x="0" y="0" width="81" height="25" uuid="226fff31-bfe5-4038-a74b-07d218c2edea"/>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="70" height="25" uuid="226fff31-bfe5-4038-a74b-07d218c2edea"/>
 							<textElement verticalAlignment="Middle"/>
 							<textFieldExpression><![CDATA[$V{QuantidadeMeasure}]]></textFieldExpression>
 						</textField>
