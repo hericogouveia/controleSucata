@@ -116,7 +116,7 @@ from
 movimentacao as m inner join tipoMaterial as t
 on m.tipoMaterialMov = t.id
 where
-t.id not in (14,15,16,17,18,19,20) and m.dataMovimentacao>=$P{inicio} and m.dataMovimentacao<=$P{fim}
+t.id not in (14,15,16,17,18,19,20,21,22) and m.dataMovimentacao>=$P{inicio} and m.dataMovimentacao<=$P{fim}
 group by
 t.descTipoMaterial]]>
 		</queryString>
@@ -160,7 +160,7 @@ from
 movimentacao as m inner join tipoMaterial as t
 on m.tipoMaterialMov = t.id
 where
-t.id in (14,15,16,17,18,19,20) and m.dataMovimentacao>=$P{inicio} and m.dataMovimentacao<=$P{fim}
+t.id in (14,15,16,17,18,19,20,21,22) and m.dataMovimentacao>=$P{inicio} and m.dataMovimentacao<=$P{fim}
 group by
 t.descTipoMaterial]]>
 		</queryString>

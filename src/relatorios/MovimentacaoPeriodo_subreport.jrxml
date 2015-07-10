@@ -15,7 +15,7 @@ from
 movimentacao as m inner join tipoMaterial as t
 on m.tipoMaterialMov = t.id
 where
-t.id not in (14,15,16,17,18,19,20) and m.dataMovimentacao>=$P{inicio} and m.dataMovimentacao<=$P{fim}]]>
+t.id not in (14,15,16,17,18,19,20,21,22) and m.dataMovimentacao>=$P{inicio} and m.dataMovimentacao<=$P{fim}]]>
 	</queryString>
 	<field name="Data" class="java.sql.Date"/>
 	<field name="Material" class="java.lang.String"/>
@@ -94,7 +94,7 @@ t.id not in (14,15,16,17,18,19,20) and m.dataMovimentacao>=$P{inicio} and m.data
 								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 							</box>
 							<textField>
-								<reportElement style="Crosstab Data Text" x="3" y="0" width="65" height="30" uuid="e3c6a902-1ced-4f37-bad7-1d91f3fcf3a9"/>
+								<reportElement style="Crosstab Data Text" x="3" y="0" width="64" height="30" uuid="e3c6a902-1ced-4f37-bad7-1d91f3fcf3a9"/>
 								<textElement verticalAlignment="Middle"/>
 								<textFieldExpression><![CDATA[$V{Material}]]></textFieldExpression>
 							</textField>
@@ -107,25 +107,25 @@ t.id not in (14,15,16,17,18,19,20) and m.dataMovimentacao>=$P{inicio} and m.data
 				<measure name="QuantidadeMeasure" class="java.lang.Double" calculation="Sum">
 					<measureExpression><![CDATA[$F{Quantidade}]]></measureExpression>
 				</measure>
-				<crosstabCell width="70" height="25">
+				<crosstabCell width="74" height="25">
 					<cellContents>
 						<box>
 							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 						</box>
 						<textField pattern="#,##0">
-							<reportElement style="Crosstab Data Text" x="0" y="0" width="70" height="25" uuid="4e5e1aa2-667e-448d-ad41-e042e3fc62b1"/>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="69" height="25" uuid="4e5e1aa2-667e-448d-ad41-e042e3fc62b1"/>
 							<textElement verticalAlignment="Middle"/>
 							<textFieldExpression><![CDATA[$V{QuantidadeMeasure}]]></textFieldExpression>
 						</textField>
 					</cellContents>
 				</crosstabCell>
-				<crosstabCell width="70" height="25" rowTotalGroup="Data">
+				<crosstabCell width="74" height="25" rowTotalGroup="Data">
 					<cellContents backcolor="#BFE1FF" mode="Opaque">
 						<box>
 							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
 						</box>
 						<textField pattern="#,##0">
-							<reportElement style="Crosstab Data Text" x="0" y="0" width="70" height="25" uuid="226fff31-bfe5-4038-a74b-07d218c2edea"/>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="69" height="25" uuid="226fff31-bfe5-4038-a74b-07d218c2edea"/>
 							<textElement verticalAlignment="Middle"/>
 							<textFieldExpression><![CDATA[$V{QuantidadeMeasure}]]></textFieldExpression>
 						</textField>
